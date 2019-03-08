@@ -1,18 +1,18 @@
 {
-  "name": "better-electron-template",
-  "version": "0.1.0",
+  "name": "viewer-app-electron",
+  "version": "0.1.4",
   "private": true,
   "main": "main.js",
   "homepage": "./",
   "dependencies": {
-    "@bit/unfoldingword.resources.viewer": "^0.1.4",
+    "@bit/unfoldingword.resources.viewer": "0.1.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "start": "concurrently 'yarn react-start' 'wait-on http://localhost:3000/ && cross-env NODE_ENV=development yarn electron-start'",
-    "build": "yarn react-build && cp package.json build/ && yarn electron-build",
+    "start": "concurrently 'npm run react-start' 'wait-on http://localhost:3000/ && cross-env NODE_ENV=development npm run electron-start'",
+    "build": "npm run react-build && cp package.json build/ && npm run electron-build",
     "electron-start": "electron .",
     "electron-build": "electron-packager ./build --out=dist",
     "react-start": "react-scripts start",

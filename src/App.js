@@ -3,12 +3,6 @@ import Viewer from '@bit/unfoldingword.resources.viewer';
 
 const defaultContext = {
 	username: 'STR',
-	languageId: 'hi',
-	resourceId: 'ulb',
-	reference: {
-		bookId: 'mat',
-		chapter: '1',
-	}
 };
 
 function App() {
