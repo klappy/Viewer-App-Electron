@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Viewer from '@bit/unfoldingword.resources.viewer';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const defaultContext = {
+	username: 'STR',
+	languageId: 'hi',
+	resourceId: 'ulb',
+	reference: {
+		bookId: 'mat',
+		chapter: '1',
+	}
+};
+
+function App() {
+	const [context, setContext] = useState(defaultContext);
+	return (
+		<Viewer
+		  context={context}
+			setContext={setContext}
+			history={[]}
+		/>
+	);
+};
 
 export default App;
