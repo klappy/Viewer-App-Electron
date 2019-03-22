@@ -1,6 +1,5 @@
 const path = require('path');
 const {app, Menu} = require('electron');
-const dbUtil = require(`../src/util/DbUtil.js`);
 
 // import settings from 'electron-settings';
 const {
@@ -126,15 +125,15 @@ app.on('activate', () => {
     createMainWindow();
   }
 });
-
-async function preProcess() {
-  createWindow();
-  try {
-    await dbUtil.dbSetupAll();
-  } catch(err) {
-    console.log('Error while App intialization.' + err);
-  };
-};
+//
+// async function preProcess() {
+//   createWindow();
+//   try {
+//     await dbUtil.dbSetupAll();
+//   } catch(err) {
+//     console.log('Error while App intialization.' + err);
+//   };
+// };
 
 // create main BrowserWindow with a splash screen when electron is ready
 app.on('ready', async () => {
@@ -146,5 +145,5 @@ app.on('ready', async () => {
       mainWindow.show();
     }, 300);
   });
-  await preProcess();
+  // await preProcess();
 });

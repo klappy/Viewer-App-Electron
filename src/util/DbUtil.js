@@ -1,5 +1,3 @@
-const {existsSync, mkdirSync} = require('fs');
-
 const dataProvider = require(`${__dirname}/data-provider`);
 
 const bibleJson = require(`${__dirname}/../lib/full_bible_skel.json`);
@@ -96,11 +94,6 @@ const setupLookupsDb = async () => {
 async function dbSetupAll() {
   console.log('dbSetup()');
   try {
-    // Setup database.
-    if ( !existsSync('db') ) {
-      mkdirSync( 'db' );
-      console.log('created ./db path');
-    }
     await setupTargetDb();
     await setupRefDb();
     await setupLookupsDb();
@@ -140,10 +133,12 @@ const destroyDbs = async () => {
   return true;
 };
 
-module.exports = {
+const exports = {
   dbSetupAll,
   destroyDbs,
   setupTargetDb,
   setupRefDb,
 	setupLookupsDb,
 };
+
+export default exports;
